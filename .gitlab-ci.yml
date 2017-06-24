@@ -16,7 +16,7 @@ test:
   stage: test
   script:
     - npm install
-    - ls
+    - ls -a
     - ng build
     - apt-get update -qy
     - apt-get install -y ruby-dev
