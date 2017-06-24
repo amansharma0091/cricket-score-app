@@ -15,9 +15,7 @@ stages:
 test:
   stage: test
   script:
-    - npm install
-    - ls -a
-    - ng build
+    - npm install && ls -a && ng build && ls -a
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
