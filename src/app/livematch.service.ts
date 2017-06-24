@@ -19,7 +19,7 @@ export class LiveMatchService {
   public matchId: BehaviorSubject<number> = new BehaviorSubject<number>(2);
   public defaultMatchDate : string = "2008-04-18";
 
-  constructor(private http: Http) {
+  constructor(private http: Http)  {
     const headers = new Headers();
     headers.set('Content-Type', 'application/json');
     this.options = new RequestOptions({ headers: headers });
@@ -28,7 +28,7 @@ export class LiveMatchService {
     this.matchId.next(matchId);
   }
   public getDelivery(over: Over, matchId :number): Observable<Delivery> {
-    const url = 'http://localhost:8080/delivery-by-over?match='+matchId+'&inning=2&over=' + over.over + '&ball=' + over.ball;
+    const url = 'https://capp-ci-api-dev.herokuapp.com/delivery-by-over?match='+matchId+'&inning=2&over=' + over.over + '&ball=' + over.ball;
     return this.http.get(url)
       .map(resp => {
         return resp.json();
@@ -36,7 +36,7 @@ export class LiveMatchService {
       .catch(this.handleError);
   }
   public getMatches(date: string): Observable<Match[]> {
-    const url = 'http://localhost:8080/matches-on-date?date=' + date;
+    const url = 'https://capp-ci-api-dev.herokuapp.com/matches-on-date?date=' + date;
     return this.http.get(url)
       .map(resp => {
         return resp.json();
