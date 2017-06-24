@@ -1,0 +1,52 @@
+
+<div class="title" *ngIf="battingTeam && oversInning1 && scoreInnings1">
+	<span>{{battingTeam}} {{scoreInnings1}} ({{oversInning1.over}}.{{oversInning1.ball}} Overs)</span> <span>CRR: 4.62</span>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Batsman</th>
+			<th>R</th>
+			<th>B</th>
+			<th>4s</th>
+			<th>6s</th>
+			<th>SR</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{batsman.name}}</td>
+			<td>{{batsman.runs}}</td>
+			<td>{{batsman.balls}}</td>
+			<td>{{batsman.fours}}</td>
+			<td>{{batsman.sixes}}</td>
+			<td>{{batsman.strikeRate}}</td>
+		</tr>
+		<tr>
+			<td>{{nonStriker.name}}</td>
+			<td>{{nonStriker.runs}}</td>
+			<td>{{nonStriker.balls}}</td>
+			<td>{{nonStriker.fours}}</td>
+			<td>{{nonStriker.sixes}}</td>
+			<td>{{nonStriker.strikeRate}}</td>
+		</tr>
+	</tbody>
+</table>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Bowler</th>
+			<th>O</th>
+			<th>R</th>
+			<th>W</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{bowler.name}}</td>
+			<td>{{bowler.overs}}</td>
+			<td>{{bowler.runs}}</td>
+			<td>{{bowler.wickets}}</td>
+		</tr>
+	</tbody>
+</table>

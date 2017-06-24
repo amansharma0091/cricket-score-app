@@ -1,3 +1,31 @@
-<h1>
-  {{title}}
-</h1>
+
+<div class="container">
+  <div class="columns" >
+    <div class="column" >
+      <span class="sim-date-txt">Simulator Date </span>
+      <span>            <p-calendar [(ngModel)]="value" (onSelect)="updateMatchList()"></p-calendar>
+        <i class="fa fa-angle-down sim-date" aria-hidden="true"></i>
+      </span>
+    </div>
+  </div>
+	<div class="columns score-type-row">
+    <div class="column is-7" >			          <span class="tag is-primary score-type-tag"prouterLink="/live-match"
+				                                            routerLinkActive="active">Live</span> <span class="tag is-light score-type-tag"
+				                                                                                        routerLink="/score-board" routerLinkActive="active">Score
+				Board</span></div>
+  </div>
+
+  <div class="columns">
+
+	  <div class="column is-3">
+		  <div class="box match-item" *ngFor="let match of matches" [class.active]="selectedMatch.id===match.id" (click)="onMatchSelect(match)">
+			  <strong>{{match.team1}} Vs {{match.team2}}</strong>
+			  <div>{{match.venue}}, {{match.city}}</div>
+		  </div>
+	  </div>
+
+    <div class="column is-7 is-offset-1 live-scr-col">
+		  <router-outlet></router-outlet>
+	  </div>
+  </div>
+</div>
